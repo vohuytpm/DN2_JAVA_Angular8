@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rikkeisoft.vn.dao.CategoryDAO;
-import com.rikkeisoft.vn.model.Category;
+import com.rikkeisoft.vn.model.TopicCategory;
 
 @Service
 public class CategoryServiceImp implements CategoryService {
@@ -17,21 +17,21 @@ public class CategoryServiceImp implements CategoryService {
 
 	@Transactional
 	@Override
-	public List<Category> get() {
+	public List<TopicCategory> get() {
 		// TODO Auto-generated method stub
 		return categoryDAO.get();
 	}
 
 	@Transactional
 	@Override
-	public Category get(int id) {
+	public TopicCategory get(int id) {
 		// TODO Auto-generated method stub
 		return categoryDAO.get(id);
 	}
 
 	@Transactional
 	@Override
-	public void save(Category cat) {
+	public void save(TopicCategory cat) {
 		categoryDAO.save(cat);
 	}
 

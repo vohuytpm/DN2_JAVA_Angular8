@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rikkeisoft.vn.model.Category;
+import com.rikkeisoft.vn.model.TopicCategory;
 
 
 @Repository
@@ -19,24 +19,24 @@ public class CategoryDAOImp implements CategoryDAO {
 	private EntityManager entityManager;
 
 	@Override
-	public List<Category> get() {
+	public List<TopicCategory> get() {
 
 		Session currSession = entityManager.unwrap(Session.class);
-		Query<Category> query = currSession.createQuery("from Category", Category.class);
-		List<Category> list = query.getResultList();
+		Query<TopicCategory> query = currSession.createQuery("from TopicCategory", TopicCategory.class);
+		List<TopicCategory> list = query.getResultList();
 		return list;
 
 	}
 
 	@Override
-	public Category get(int id) {
+	public TopicCategory get(int id) {
 		Session currSession = entityManager.unwrap(Session.class);
-		Category cat = currSession.get(Category.class, id);
+		TopicCategory cat = currSession.get(TopicCategory.class, id);
 		return cat;
 	}
 
 	@Override
-	public void save(Category category) {
+	public void save(TopicCategory category) {
 		Session currSession = entityManager.unwrap(Session.class);
 		currSession.saveOrUpdate(category);
 		
@@ -45,7 +45,7 @@ public class CategoryDAOImp implements CategoryDAO {
 	@Override
 	public void delete(int id) {
 		Session currSession = entityManager.unwrap(Session.class);
-		Category cat = currSession.get(Category.class, id);
+		TopicCategory cat = currSession.get(TopicCategory.class, id);
 		currSession.delete(cat);
 
 	}

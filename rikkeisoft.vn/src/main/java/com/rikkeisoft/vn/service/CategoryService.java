@@ -2,16 +2,16 @@ package com.rikkeisoft.vn.service;
 
 import java.util.List;
 
-import com.rikkeisoft.vn.model.Category;
+import com.rikkeisoft.vn.model.TopicCategory;
 
 
 public interface CategoryService {
 	
-	List<Category> get();
+	List<TopicCategory> get();
 	
-	Category get(int id);
+	TopicCategory get(int id);
 	
-	void save(Category cat);
+	void save(TopicCategory cat);
 	
 	void delete(int id);
 

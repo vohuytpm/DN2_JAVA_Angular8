@@ -2,16 +2,16 @@ package com.rikkeisoft.vn.dao;
 
 import java.util.List;
 
-import com.rikkeisoft.vn.model.Category;
+import com.rikkeisoft.vn.model.TopicCategory;
 
 
 public interface CategoryDAO {
 	
-	List<Category> get();
+	List<TopicCategory> get();
 	
-	Category get(int id);
+	TopicCategory get(int id);
 	
-	void save(Category category);
+	void save(TopicCategory category);
 	
 	void delete(int id);
 	
