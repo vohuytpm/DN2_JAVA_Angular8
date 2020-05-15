@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Category List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories | async">
+          <td>{{category.title}}</td>
+          <td>{{category.description}}</td>
+          <td><button (click)="deleteCategory(category.categoryId)" class="btn btn-danger">Delete</button>
+              <button (click)="updateCategory(category.categoryId)" class="btn btn-info" style="margin-left: 10px">Update</button>
+              <button (click)="categoryDetails(category.categoryId)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
