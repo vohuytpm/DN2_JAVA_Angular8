@@ -1,5 +1,6 @@
 package com.rikkeisoft.vn.job;
 
+import java.io.File;
 import java.nio.charset.StandardCharsets;
 
 import javax.mail.MessagingException;
@@ -13,6 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.mail.MailProperties;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.quartz.QuartzJobBean;
@@ -41,14 +44,20 @@ public class EmailJob extends QuartzJobBean {
     private void sendMail(String fromEmail, String toEmail, String subject, String body) {
         try {
             logger.info("Sending Email to {}", toEmail);
+            String fileToAttach = "E:/Users/HuyVQ/Images/1.jpg";
+            //
             MimeMessage message = mailSender.createMimeMessage();
 
-            MimeMessageHelper messageHelper = new MimeMessageHelper(message, StandardCharsets.UTF_8.toString());
+            MimeMessageHelper messageHelper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED, StandardCharsets.UTF_8.toString());
             messageHelper.setSubject(subject);
-            messageHelper.setText(body, true);
+//            messageHelper.setText(body, true);
             messageHelper.setFrom(fromEmail);
             messageHelper.setTo(toEmail);
 
+            messageHelper.addAttachment("logo.jpg", new ClassPathResource("logo.jpg"));
+            String inlineImage = "<img src=\"cid:logo.jpg\"></img><br/>";
+//            messageHelper.setText("<html><body>" +  "<img src='cid:logo.png'></body></html>", true);
+            messageHelper.setText(body + inlineImage, true);
             mailSender.send(message);
         } catch (MessagingException ex) {
             logger.error("Failed to send email to {}", toEmail);
