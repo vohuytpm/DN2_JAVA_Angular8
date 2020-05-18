@@ -9,6 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "topic")
 public class Topic {
@@ -37,7 +44,7 @@ public class Topic {
 	private Integer state;
 	
 	@Column
-	private String Content;
+	private String content;
 	
 	@Column
 	private Integer categoryId;
@@ -46,7 +53,7 @@ public class Topic {
 	public String toString() {
 		return "topic [topicId=	" + topicId + ", userId=" + userId + ", title=" + title + 
 				", statePostId=" + statePostId + ", groupId=" + groupId + ", date=" + date + 
-				", state=" + state + ", Content=" + Content + ", categoryId="+ categoryId + "]";
+				", state=" + state + ", Content=" + content + ", categoryId="+ categoryId + "]";
 	}
 
 	public Integer getTopicId() {
@@ -133,23 +140,19 @@ public class Topic {
 
 
 
+
+
 	public String getContent() {
-		return Content;
+		return content;
 	}
-
-
 
 	public void setContent(String content) {
-		Content = content;
+		this.content = content;
 	}
-
-
 
 	public Integer getCategoryId() {
 		return categoryId;
 	}
-
-
 
 	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;

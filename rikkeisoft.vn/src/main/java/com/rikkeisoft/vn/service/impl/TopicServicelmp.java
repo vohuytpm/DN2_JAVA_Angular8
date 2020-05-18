@@ -1,13 +1,15 @@
-package com.rikkeisoft.vn.service;
+package com.rikkeisoft.vn.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import com.rikkeisoft.vn.dao.TopicDAO;
 import com.rikkeisoft.vn.model.Topic;
+import com.rikkeisoft.vn.service.TopicService;
 
+@Service
 public class TopicServicelmp implements TopicService {
 	//
 	@Autowired
@@ -26,14 +28,13 @@ public class TopicServicelmp implements TopicService {
 	@Override
 	public void save(Topic cat) {
 		topicDAO.save(cat);
-		
+
 	}
 
 	@Override
 	public void delete(int id) {
 		topicDAO.delete(id);
-		
-	}
 
+	}
 
 }
