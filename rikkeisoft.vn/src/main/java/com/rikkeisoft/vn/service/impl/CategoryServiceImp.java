@@ -1,4 +1,4 @@
-package com.rikkeisoft.vn.service;
+package com.rikkeisoft.vn.service.impl;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rikkeisoft.vn.dao.CategoryDAO;
 import com.rikkeisoft.vn.model.TopicCategory;
+import com.rikkeisoft.vn.service.CategoryService;
 
 @Service
 public class CategoryServiceImp implements CategoryService {

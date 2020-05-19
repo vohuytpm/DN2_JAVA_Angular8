@@ -1,4 +1,4 @@
-package com.rikkeisoft.vn.service;
+package com.rikkeisoft.vn.service.impl;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rikkeisoft.vn.dao.EmployeeDAO;
 import com.rikkeisoft.vn.model.Employee;
+import com.rikkeisoft.vn.service.EmployeeService;
 
 @Service
 public class EmployeeServiceImp implements EmployeeService {

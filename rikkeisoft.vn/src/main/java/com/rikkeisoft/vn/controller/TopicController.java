@@ -16,38 +16,42 @@ import org.springframework.web.bind.annotation.RestController;
 import com.rikkeisoft.vn.model.Topic;
 import com.rikkeisoft.vn.service.TopicService;
 
-@RestController @CrossOrigin
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@CrossOrigin
 @RequestMapping("/api/v1")
+@RequiredArgsConstructor
 public class TopicController {
-	
+
 	@Autowired
 	private TopicService topicService;
-	
+
 	@GetMapping("/topic")
 	public List<Topic> get() {
 		return topicService.get();
 	}
-	
+
 	@PostMapping("/topic")
 	public Topic save(@RequestBody Topic topic) {
 		topicService.save(topic);
 		return topic;
 	}
-	
+
 	@GetMapping("/topic/{topicid}")
 	public Topic get(@PathVariable int id) {
 		return topicService.get(id);
 	}
-	
+
 	@DeleteMapping("/topic/{topicid}")
 	public String delete(@PathVariable int id) {
-		
+
 		topicService.delete(id);
-		
-		return "Topic removed with id "+id;
-		
+
+		return "Topic removed with id " + id;
+
 	}
-	
+
 	@PutMapping("/topic")
 	public Topic update(@RequestBody Topic topic) {
 		topicService.save(topic);

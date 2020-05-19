@@ -1,4 +1,4 @@
-package com.rikkeisoft.vn.dao;
+package com.rikkeisoft.vn.dao.impl;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.rikkeisoft.vn.dao.CategoryDAO;
 import com.rikkeisoft.vn.model.TopicCategory;
 
 
